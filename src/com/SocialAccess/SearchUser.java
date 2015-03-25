@@ -22,6 +22,7 @@ public class SearchUser {
                     if (user.getStatus() != null) {
                         System.out.println("@" + user.getScreenName() + " - " + user.getFollowersCount());
                        numberofusers++;
+                       
                     } else {
                         // the user is protected
                         System.out.println("@" + user.getScreenName());

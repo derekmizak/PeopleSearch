@@ -22,6 +22,7 @@ public final class Main_Neo {
 			mgr.linkPersonToTwitterAccount(new PersonImpl("Joe"), new TwitterAccountImpl(new Date(), "desc", 1, 2, true,
 					"loc", "sname", 22));
 			mgr.destroy();
+
 		}
 		catch (Exception e) {
 			e.printStackTrace();

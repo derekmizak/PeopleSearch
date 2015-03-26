@@ -1,8 +1,9 @@
 package com.SocialAccess;
 
-import java.util.Iterator;
+import twitter4j.Location;
 import twitter4j.ResponseList;
 import twitter4j.Twitter;
+import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.User;
 
@@ -41,6 +42,27 @@ public class SearchUser {
         
     }
     
+    
+    public static class GetAvailableTrends {
+    
+    public static void GetAvailableTrends(String[] args) {
+        try {
+            Twitter twitter = new TwitterFactory().getInstance();
+            ResponseList<Location> locations;
+            locations = twitter.getAvailableTrends();
+            System.out.println("Showing available trends");
+            for (Location location : locations) {
+                System.out.println(location.getName() + " (woeid:" + location.getWoeid() + ")");
+            }
+            System.out.println("done.");
+            System.exit(0);
+        } catch (TwitterException te) {
+            te.printStackTrace();
+            System.out.println("Failed to get trends: " + te.getMessage());
+            System.exit(-1);
+        }
+    }
+    }
     public static void main(String[] args) {
         SearchUser su=new SearchUser();
         su.searchOnTwitter();

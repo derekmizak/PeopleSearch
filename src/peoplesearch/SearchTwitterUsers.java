@@ -42,8 +42,7 @@ public class SearchTwitterUsers {
        List<Person> people = null;
        GraphManager mgr = EmbeddedGraphManager.getInstance();
        mgr.init(new File("/usr/local/Cellar/neo4j/2.1.7/libexec/data/forlang1.db"));
-       mgr.addPerson(new PersonImpl("WGaura"));
-       mgr.addPerson(new PersonImpl("Derek Mizak"));
+       
        mgr.addPerson(new PersonImpl("Microsoft"));
        
        
@@ -61,8 +60,10 @@ public class SearchTwitterUsers {
                         
                         TwitterAccCreatedAt=user.getCreatedAt();
                         if (!user.getDescription().isEmpty()) {TwitterAccDescr=user.getDescription();}
-                        if (user.getFollowersCount()>0) {TwitterFollowersCount=user.getFavouritesCount();}
-                        if  (user.getFriendsCount()>0) {TwitterFriendsCount=user.getFriendsCount();}
+                        //if (user.getFollowersCount()>0) {TwitterFollowersCount=user.getFavouritesCount();}
+                        //if  (user.getFriendsCount()>0) {TwitterFriendsCount=user.getFriendsCount();}
+                        TwitterFollowersCount=user.getFollowersCount();
+                        TwitterFriendsCount=user.getFriendsCount();
                         TwitterGeoEnabled=user.isGeoEnabled();
                         if (!user.getLocation().isEmpty()) {TwitterLocation=user.getLocation();}
                         TwiterAccScrName=user.getScreenName();
@@ -71,8 +72,8 @@ public class SearchTwitterUsers {
                         
                         System.out.println("@" + user.getScreenName() + " - " + TwitterFollowersCount + " _ " + TwitterFriendsCount);
                       
-                        //mgr.addTwitterAccount(new TwitterAccountImpl(TwitterAccCreatedAt,TwitterAccDescr,TwitterFollowersCount,TwitterFriendsCount,TwitterGeoEnabled,TwitterLocation,TwiterAccScrName,TwitterID));
-                        mgr.linkPersonToTwitterAccount(person,new TwitterAccountImpl(TwitterAccCreatedAt,TwitterAccDescr,TwitterFollowersCount,TwitterFriendsCount,TwitterGeoEnabled,TwitterLocation,TwiterAccScrName,TwitterID));
+                        mgr.addTwitterAccount(new TwitterAccountImpl(TwitterAccCreatedAt,TwitterAccDescr,TwitterFollowersCount,TwitterFriendsCount,TwitterGeoEnabled,TwitterLocation,TwiterAccScrName,TwitterID));
+                        //mgr.linkPersonToTwitterAccount(person,new TwitterAccountImpl(TwitterAccCreatedAt,TwitterAccDescr,TwitterFollowersCount,TwitterFriendsCount,TwitterGeoEnabled,TwitterLocation,TwiterAccScrName,TwitterID));
                         
                         TwitterAccDescr=" ";
                         TwitterLocation=" ";

@@ -43,9 +43,9 @@ public class SearchUser {
     }
     
     
-    public static class GetAvailableTrends {
     
-    public static void GetAvailableTrends(String[] args) {
+    
+    public void GetAvailableTrends() {
         try {
             Twitter twitter = new TwitterFactory().getInstance();
             ResponseList<Location> locations;
@@ -62,10 +62,12 @@ public class SearchUser {
             System.exit(-1);
         }
     }
-    }
+    
     public static void main(String[] args) {
         SearchUser su=new SearchUser();
-        su.searchOnTwitter();
+        //su.searchOnTwitter();
+        su.GetAvailableTrends();
+        
     }
     
 }

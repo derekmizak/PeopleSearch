@@ -45,9 +45,10 @@ public static void searchWhomUserFollow(){
             System.out.println("Listing following ids.");
             do {
                 
-                    ids = twitter.getFriendsIDs(people[0], cursor);
+                    ids = twitter.getFriendsIDs("derekmizak", cursor);
                 
                 for (long id : ids.getIDs()) {
+                   
                     System.out.println(id);
                 }
             } while ((cursor = ids.getNextCursor()) != 0);
@@ -107,7 +108,7 @@ return lineConnection;
 }
 public static void main(String[]args){
     //TwitterSearch.searchWhomUserFollow();
-    TwitterSearch.ShowFriendsListNames();
+    TwitterSearch.searchWhomUserFollow();
     
 }
 }

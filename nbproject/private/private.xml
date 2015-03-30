@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/dm/OneDrive/UCD/LangProject/Code/PeopleSearch/src/peoplesearch/PeopleSearch.java</file>
+            <file>file:/Users/dm/OneDrive/UCD/LangProject/Code/PeopleSearch/src/peoplesearch/FindFriendsAndFollowers.java</file>
+            <file>file:/Users/dm/OneDrive/UCD/LangProject/Code/PeopleSearch/src/com/SocialAccess/TwitterSearch.java</file>
             <file>file:/Users/dm/OneDrive/UCD/LangProject/Code/PeopleSearch/src/peoplesearch/SearchTwitterUsers.java</file>
+            <file>file:/Users/dm/OneDrive/UCD/LangProject/Code/PeopleSearch/people.csv</file>
         </group>
     </open-files>
 </project-private>

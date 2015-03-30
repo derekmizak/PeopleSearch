@@ -31,6 +31,7 @@ import java.io.InputStreamReader;
 import java.io.*;
 import java.util.Date;
 import java.util.List;
+import utils.TwitterLimitWait;
 
 
 /**
@@ -62,19 +63,24 @@ try {
             for (TwitterAccount Twit : twitteraccountslist) {
             
                 do {
+                    TwitterLimitWait tlw=new TwitterLimitWait();
+                    tlw.CheckLimit();
+                    
                     if (0 < twitteraccountslist.size()) {
                     ids = twitter.getFollowersIDs(Twit.getScreenName(), cursor); //.getFollowersIDs(pep[0], cursor);
                         //ids = twitter.getFollowersIDs("Philiptwoshoes", cursor); //.getFollowersIDs(pep[0], cursor);
                         users1 = twitter.getFollowersList(Twit.getScreenName(), cursor);
-
+                        tlw.CheckLimit();
                         users2 = twitter.getFriendsList(Twit.getScreenName(), cursor);
 
                     } else {
+                        tlw.CheckLimit();
                         ids = twitter.getFollowersIDs(cursor);
 
                     }
 
                         for (User user : users1) {
+                        tlw.CheckLimit();
                         System.out.println("the follower called "+ user.getName() + " with twitter handler " + user.getScreenName());
                         String username= user.getName();
                         //mgr.addPerson(new PersonImpl(username));
@@ -84,7 +90,9 @@ try {
                         if (empty1==true){
                             descript=" ";
                         }
+                        tlw.CheckLimit();
                         int followers=user.getFollowersCount();
+                        tlw.CheckLimit();
                         int following=user.getFriendsCount();
                         boolean geo=user.isGeoEnabled();
                         String loc=user.getLocation();
@@ -97,6 +105,7 @@ try {
                         if (empty3==true){
                             screenname=" ";
                         }
+                        tlw.CheckLimit();
                         long twitID=user.getId();
                         
                         mgr.linkPersonToTwitterAccount(new PersonImpl(username), new TwitterAccountImpl(Creation,descript,followers,following,geo,loc,screenname,twitID));
@@ -106,7 +115,8 @@ try {
                         System.out.println("The total number of followers is: "+ users1.size());
                         // the same procedure for the Following
                         for (User user : users2) {
-                        System.out.println("the following called "+ user.getName() + " with twitter handler " + user.getScreenName());
+                        tlw.CheckLimit();
+                            System.out.println("the following called "+ user.getName() + " with twitter handler " + user.getScreenName());
                         String username1= user.getName();
                         //mgr.addPerson(new PersonImpl(username1));
                         Date Creation= user.getCreatedAt();
@@ -124,10 +134,12 @@ try {
                             loc=" ";
                         }
                         String screenname=user.getScreenName();
+                        tlw.CheckLimit();
                         boolean empty3= user.getScreenName().isEmpty();
                         if (empty3==true){
                             screenname=" ";
                         }
+                        tlw.CheckLimit();
                         long twitID=user.getId();
                         //mgr.addTwitterAccount(new TwitterAccountImpl(Creation,descript,followers,following,geo,loc,screenname,twitID));
                         mgr.linkPersonToTwitterAccount(new PersonImpl(username1), new TwitterAccountImpl(Creation,descript,followers,following,geo,loc,screenname,twitID));

@@ -69,6 +69,7 @@ try {
                     if (0 < twitteraccountslist.size()) {
                     ids = twitter.getFollowersIDs(Twit.getScreenName(), cursor); //.getFollowersIDs(pep[0], cursor);
                         //ids = twitter.getFollowersIDs("Philiptwoshoes", cursor); //.getFollowersIDs(pep[0], cursor);
+                        tlw.CheckLimit();
                         users1 = twitter.getFollowersList(Twit.getScreenName(), cursor);
                         tlw.CheckLimit();
                         users2 = twitter.getFriendsList(Twit.getScreenName(), cursor);
@@ -85,6 +86,7 @@ try {
                         String username= user.getName();
                         //mgr.addPerson(new PersonImpl(username));
                         Date Creation= user.getCreatedAt();
+                        tlw.CheckLimit();
                         String descript=user.getDescription();
                         boolean empty1= user.getDescription().isEmpty();
                         if (empty1==true){

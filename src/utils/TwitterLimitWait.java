@@ -20,17 +20,17 @@ public class TwitterLimitWait {
             Map<String ,RateLimitStatus> rateLimitStatus = twitter.getRateLimitStatus();
             for (String endpoint : rateLimitStatus.keySet()) {
                 RateLimitStatus status = rateLimitStatus.get(endpoint);
-                //System.out.println("Endpoint: " + endpoint);
-                //System.out.println(" Limit: " + status.getLimit());
-                //System.out.println(" Remaining: " + status.getRemaining());
-                if(status.getRemaining()<2){
+                System.out.println("Endpoint: " + endpoint);
+                System.out.println(" Limit: " + status.getLimit());
+                System.out.println(" Remaining: " + status.getRemaining());
+                if(status.getRemaining()<5){
                                             StatusUntilReset=status.getSecondsUntilReset();
                                             System.out.println("I have to wait for twiiter"+ " "+
                                                     StatusUntilReset);
                                             Thread.sleep(StatusUntilReset);
                                             };
-                //System.out.println(" ResetTimeInSeconds: " + status.getResetTimeInSeconds());
-                //System.out.println(" SecondsUntilReset: " + status.getSecondsUntilReset());
+                System.out.println(" ResetTimeInSeconds: " + status.getResetTimeInSeconds());
+                System.out.println(" SecondsUntilReset: " + status.getSecondsUntilReset());
                 
             }
             

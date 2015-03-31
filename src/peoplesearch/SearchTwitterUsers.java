@@ -48,6 +48,12 @@ public class SearchTwitterUsers {
        mgr.addPerson(new PersonImpl("Derek Mizak"));
        mgr.addPerson(new PersonImpl("Swiderek"));
        mgr.addPerson(new PersonImpl("Microsoft"));
+       mgr.addPerson(new PersonImpl("BBC"));
+       mgr.addPerson(new PersonImpl("RTE"));
+       mgr.addPerson(new PersonImpl("CNBC"));
+       mgr.addPerson(new PersonImpl("Poland"));
+       mgr.addPerson(new PersonImpl("Ireland"));
+       mgr.addPerson(new PersonImpl("Ergo"));
        
        people=mgr.listPeople();
        

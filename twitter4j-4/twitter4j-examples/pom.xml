@@ -102,7 +102,7 @@
         <dependency>
             <groupId>org.twitter4j</groupId>
             <artifactId>twitter4j-async</artifactId>
-            <version>4.0.2</version>
+            <version>4.0.7</version>
         </dependency>
         <dependency>
             <groupId>org.twitter4j</groupId>
